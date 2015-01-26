@@ -18,7 +18,16 @@
         <% end %>
       </select>
       <button type="submit">List division employees</button>
+
     </form>
+    <% if @division_employees != nil %>
+        <% @division_employees.each() do |employee| %>
+          <ul>
+            <li> <%= employee.name() %> </li>
+          </ul>
+        <% end %>
+    <% end %>
+
   </div>
 
 
