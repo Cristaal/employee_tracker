@@ -35,8 +35,9 @@ end
 
 post("/division_list") do
   @employees = Employee.all()
-  division_id = params.fetch("division_id").to_i()
+  division_id = params.fetch("division_id")
+  division = Division.find(division_id)
   @divisions = Division.all()
-  @division_employees = Employee.where(division_id: division_id)
+  @division_employees = division.employees()
   erb(:index)
 end
